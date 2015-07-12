@@ -45,7 +45,7 @@ def lta_request_ex (api_name, params, skip):
         skip_param = '&$skip=' + str(skip)
     #target = urlparse(uri + api_name + '?' + urllib.urlencode( params ) + skip_param )
     target = urlparse(uri + api_name + '?' + params + skip_param)
-    print target.geturl()
+    #print target.geturl()
     method = 'GET'
     body = ''
     #Get handle to http
@@ -73,7 +73,6 @@ def lta_request(api_name, param):
     skip = 0
     data = []
     while(True):
-        # print "Request"
         partialRes = lta_request_ex(api_name, param, skip)
         partialData = partialRes['d']
         if (len(partialData) == 0):
@@ -84,8 +83,9 @@ def lta_request(api_name, param):
 
 def dump_lta_request(api_name, param):
     res = lta_request(api_name, param)
-    with open(api_name + ".json", "w") as outfile:
-        json.dump(res, outfile, sort_keys=True, indent=4, ensure_ascii=False)
+    print json.dumps(res, sort_keys=True, indent=4)
+    #with open(api_name + ".json", "w") as outfile:
+    #    json.dump(res, outfile, sort_keys=True, indent=4, ensure_ascii=False)
 
 #dump_lta_request('IncidentSet', {'Latitude':'1.366667', 'Longitude':'103.8', 'Distance':'26000'})
 

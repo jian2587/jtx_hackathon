@@ -4,10 +4,17 @@ cd ~/hackathon/lta/data
 mkdir $D
 cp ../lta.py $D/
 cd $D
-python ./lta.py IncidentSet
-python ./lta.py TaxiAvailability
-python ./lta.py TravelTimeSet
-python ./lta.py BusArrival
+python ./lta.py IncidentSet > IncidentSet.json
+python ./lta.py TaxiAvailability > TaxiAvailability.json
+python ./lta.py TravelTimeSet > TravelTimeSet.json
+python ./lta.py BusArrival BusStopID=28091 > BusArrival_Lakeside_0.json
+python ./lta.py BusArrival BusStopID=28099 > BusArrival_Lakeside_1.json
+python ./lta.py BusArrival BusStopID=59009 > BusArrival_Yishun.json
+python ./lta.py BusArrival BusStopID=10169 > BusArrival_Tiong_Bahru_0.json
+python ./lta.py BusArrival BusStopID=10161 > BusArrival_Tiong_Bahru_1.json
+python ./lta.py BusArrival BusStopID=64009 > BusArrival_Hougang_0.json
+python ./lta.py BusArrival BusStopID=64549 > BusArrival_Hougang_1.json
+python ./lta.py BusArrival BusStopID=40181 > BusArrival_Newton_0.json
+python ./lta.py BusArrival BusStopID=40189 > BusArrival_Newton_1.json
 popd
-
 
