@@ -1,0 +1,10 @@
+D=`TZ="Asia/Singapore" date +%Y%m%d%H%M%S`
+mkdir $D
+cp lta.py $D/
+cd $D
+python ./lta.py IncidentSet
+python ./lta.py TaxiAvailability
+python ./lta.py TravelTimeSet
+python ./lta.py BusArrival
+cd ..
+
