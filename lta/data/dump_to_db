@@ -1,0 +1,12 @@
+for D in `find . -mindepth 1 -maxdepth 1 -type d`
+do
+  if [ ! -f "${D}/json2db.py" ]; then
+    echo "Processing ${D}..."
+    cp ../json2db.py "${D}/"
+    pushd .
+    cd "${D}"
+    python ./json2db.py
+    popd
+ fi
+done
+
