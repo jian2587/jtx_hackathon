@@ -1,6 +1,6 @@
 D=`TZ="Asia/Singapore" date +%Y%m%d%H%M%S`
 mkdir $D
-cp lta.py $D/
+cp ../lta.py $D/
 cd $D
 python ./lta.py IncidentSet
 python ./lta.py TaxiAvailability

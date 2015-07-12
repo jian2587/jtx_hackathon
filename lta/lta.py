@@ -43,7 +43,8 @@ def lta_request_ex (api_name, params, skip):
         skip_param = ''
     else:
         skip_param = '&$skip=' + str(skip)
-    target = urlparse(uri + api_name + '?' + urllib.urlencode( params ) + skip_param )
+    #target = urlparse(uri + api_name + '?' + urllib.urlencode( params ) + skip_param )
+    target = urlparse(uri + api_name + '?' + params + skip_param)
     print target.geturl()
     method = 'GET'
     body = ''
@@ -78,7 +79,7 @@ def lta_request(api_name, param):
         if (len(partialData) == 0):
             break
         skip += len(partialData)
-        data.extend(partialRes)
+        data.extend(partialData)
     return data
 
 def dump_lta_request(api_name, param):
@@ -95,5 +96,9 @@ if __name__ == "__main__":
     #dump_lta_request('TrafficSpeedBandSet', {'LinkID':'103003846'})
     #dump_lta_request('BusArrival', {'BusStopID':'01012'})
     #dump_lta_request('IncidentSet', {})
-    dump_lta_request(sys.argv[1], {})
+    api_name = sys.argv[1]
+    param = ""
+    if (len(sys.argv) > 2):
+        param = sys.argv[2]
+    dump_lta_request(api_name, param)
 
